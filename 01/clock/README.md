@@ -40,3 +40,4 @@ Deploy Application
    ```
    $ gcloud app deploy
    ```
+2. Visit page [Clock](https://stone-door-180117.appspot.com/).
