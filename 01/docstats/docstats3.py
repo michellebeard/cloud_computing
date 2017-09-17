@@ -2,6 +2,7 @@
 # StudentID: 1178110
 
 import argparse
+import string
 
 from collections import defaultdict
 
@@ -36,7 +37,7 @@ with open(lname) as f:
 
 
 with open(fname) as f:
-	content = [word for line in f for word in line.split()]
+	content = [word.lower().translate(None, string.punctuation) for line in f for word in line.split()]
 
 c = reduce(lambda x, key: x + lexicon[key], content, 0)
 

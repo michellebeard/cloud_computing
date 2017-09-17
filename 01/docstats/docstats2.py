@@ -2,6 +2,7 @@
 # StudentID: 1178110
 
 import argparse
+import string
 
 from collections import defaultdict
 
@@ -39,7 +40,7 @@ with open(sname) as f:
 	stopwords = [word for line in f for word in line.split()]
 
 with open(fname) as f:
-	content = [word for line in f for word in line.split()]
+	content = [word.lower().translate(None, string.punctuation) for line in f for word in line.split()]
 
 s_content = list(filter(lambda w: w not in stopwords, content))
 

@@ -2,6 +2,7 @@
 # StudentID: 1178110
 
 import argparse
+import string
 
 from collections import defaultdict
 
@@ -25,7 +26,7 @@ fname = args.file.pop()
 n = args.n.pop()
 
 with open(fname) as f:
-	content = [word for line in f for word in line.split()]
+	content = [word.lower().translate(None, string.punctuation) for line in f for word in line.split()]
 
 result = defaultdict(int)
 
