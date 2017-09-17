@@ -2,6 +2,7 @@
 # StudentID: 1178110
 
 import argparse
+
 from collections import defaultdict
 
 parser = argparse.ArgumentParser(description='Computes how many times each word'
