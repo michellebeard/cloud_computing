@@ -37,7 +37,7 @@ with open(lname) as f:
 
 
 with open(fname) as f:
-	content = [word.lower().translate(None, string.punctuation) for line in f for word in line.split()]
+	content = [w.lower().translate(None, string.punctuation) for line in f for word in line.split() for w in word.split('-')]
 
 c = reduce(lambda x, key: x + lexicon[key], content, 0)
 

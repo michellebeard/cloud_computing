@@ -26,13 +26,14 @@ fname = args.file.pop()
 n = args.n.pop()
 
 with open(fname) as f:
-	content = [word.lower().translate(None, string.punctuation) for line in f for word in line.split()]
+	content = [w.lower().translate(None, string.punctuation) for line in f for word in line.split() for w in word.split('-')]
 
 result = defaultdict(int)
 
 for word in content:
 	result[word] += 1
 
-for i, w in enumerate(sorted(result, key=result.get, reverse=True)):
+for i, w in enumerate(sorted(result.items(), key=lambda x: (x[1], x[0]), reverse=True)):
 	if i == n: break
-	print w, result[w]
+	print w[0], w[1]
+
